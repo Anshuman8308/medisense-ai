@@ -1,5 +1,5 @@
 # MediSense AI 
-### Production-Ready AI-Powered Disease Prediction & Healthcare System
+### Disease Prediction & Healthcare System
 
 ---
 
