@@ -1,4 +1,4 @@
-# MediSense AI v2 🏥
+# MediSense AI 
 ### Production-Ready AI-Powered Disease Prediction & Healthcare System
 
 ---
