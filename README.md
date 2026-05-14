@@ -208,34 +208,9 @@ netlify deploy --dir frontend --prod
 # Or drag-and-drop frontend/index.html to https://app.netlify.com/drop
 ```
 
----
 
-## Adding Claude API Chat
 
-Replace the rule-based chat with Claude for real conversational AI:
 
-```python
-# backend/services/claude_chat_service.py
-import anthropic, os
-
-client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-
-SYSTEM = """You are Dr. MediSense, an AI medical assistant. Help users understand
-their symptoms and guide them toward appropriate care. Always include a disclaimer
-to consult a certified doctor. Never make definitive clinical diagnoses."""
-
-def chat(message: str, history: list) -> str:
-    messages = history + [{"role": "user", "content": message}]
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=1024,
-        system=SYSTEM,
-        messages=messages,
-    )
-    return response.content[0].text
-```
-
-Then in `backend/routes/predict.py`, call `claude_chat_service.chat(msg, history)` instead of the rule-based `conversational()` function.
 
 ---
 
