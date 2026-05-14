@@ -3,25 +3,6 @@
 
 ---
 
-## What's New in v2
-
-| Area | v1 | v2 |
-|------|----|----|
-| ML training | Basic RF, accuracy only | sklearn Pipeline + 5-fold CV + Precision/Recall/F1/CM |
-| Overfitting | Unchecked | Tracked (train vs test gap), regularised hyperparameters |
-| API responses | Flat JSON | Standard envelope `{status, data, message, timestamp}` |
-| Backend structure | Single `app.py` | Modular: `routes/` · `services/` · `models/` · `config.py` |
-| Error handling | Minimal | Validation + typed errors on every endpoint |
-| CNN module | Architecture only | Full training pipeline: augmentation, two-phase fine-tuning |
-| PDF reports | Not present | Downloadable AI health report via `reportlab` |
-| Doctor search | Static list | Real Google Maps Places API (fallback to demo data) |
-| Counselling | Keyword match | Topic scoring + mood detection + crisis detection |
-| Deployment | None | `Procfile` + `render.yaml` + gunicorn + `.env` support |
-| History | None | LocalStorage prediction history with re-run |
-| Metrics view | None | Live dashboard: CV accuracy, F1, overfit gap, RF config |
-
----
-
 ## Project Structure
 
 ```
@@ -213,30 +194,6 @@ echo "GOOGLE_MAPS_API_KEY=your_key_here" >> backend/.env
 
 ---
 
-## Deployment
-
-### Render (recommended — free tier available)
-
-```bash
-# 1. Push to GitHub
-git init && git add . && git commit -m "MediSense AI v2"
-git remote add origin https://github.com/your/repo.git && git push
-
-# 2. Go to https://render.com → New → Blueprint → connect your repo
-# Render reads render.yaml automatically and sets up everything.
-
-# 3. Set secret env vars in Render dashboard:
-#    GOOGLE_MAPS_API_KEY, ANTHROPIC_API_KEY, SECRET_KEY
-```
-
-### Railway
-
-```bash
-railway login
-railway init
-railway up
-# Set env vars in Railway dashboard
-```
 
 ### Frontend (Vercel / Netlify)
 
