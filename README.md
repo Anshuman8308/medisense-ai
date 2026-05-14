@@ -153,7 +153,7 @@ Raw CSVs → Feature engineering → StandardScaler → RandomForestClassifier
 | Recall (weighted) | 100.0% |
 | F1 (weighted) | 100.0% |
 | CV Val Accuracy (5-fold, μ) | 100.0% ± 0.0000 |
-| Overfitting Gap | 0.0000 ✅ |
+| Overfitting Gap | 0.0000 |
 
 > The dataset is deterministic by design (each disease has exactly 120 records with fixed symptom patterns), so 100% accuracy with zero overfit gap is expected and correct — not a sign of data leakage.
 
@@ -192,21 +192,7 @@ echo "GOOGLE_MAPS_API_KEY=your_key_here" >> backend/.env
 # 4. Restart backend — /api/doctors will now return real nearby results
 ```
 
----
 
-
-### Frontend (Vercel / Netlify)
-
-The frontend is a single `index.html` file — no build step required.
-Just change `const API = 'http://localhost:5000'` in `index.html` to your
-deployed backend URL before deploying.
-
-```bash
-# Netlify CLI
-netlify deploy --dir frontend --prod
-
-# Or drag-and-drop frontend/index.html to https://app.netlify.com/drop
-```
 
 
 
